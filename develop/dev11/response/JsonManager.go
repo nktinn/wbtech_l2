@@ -1,4 +1,4 @@
-package service
+package response
 
 import (
 	"encoding/json"
@@ -17,6 +17,6 @@ func SendJsonResponse(w http.ResponseWriter, httpStatusCode int, resp interface{
 
 	err := json.NewEncoder(w).Encode(resp)
 	if err != nil {
-		http.Error(w, "ошибка при сериализации ответа сервера", http.StatusServiceUnavailable)
+		http.Error(w, "error serializing server's response", http.StatusServiceUnavailable)
 	}
 }
